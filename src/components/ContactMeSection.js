@@ -40,6 +40,7 @@ const LandingSection = () => {
     }),
   });
 
+
   useEffect(() => {
     if (response) {
       onOpen(response.type, response.message);
@@ -104,8 +105,8 @@ const LandingSection = () => {
                 />
                 <FormErrorMessage>{formik.errors.comment}</FormErrorMessage>
               </FormControl>
-              <Button type="submit" colorScheme="purple" width="full">
-                {submissionText}
+              <Button type="submit" colorScheme="purple" width="full" isLoading={isLoading}>
+                Submit
               </Button>
             </VStack>
           </form>
