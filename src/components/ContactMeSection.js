@@ -42,10 +42,13 @@ const LandingSection = () => {
     }),
   });
 
-  useEffect(()=>{
-    setSubmissionText(isLoading?"Loading":"Submit")
-  },
-  [isLoading])
+  useEffect(() => {
+    if (response) {
+      onOpen(response.type, response.message);
+      if (response.type === "success")
+        formik.resetForm();
+    }
+  }, [response]);
 
   return (
     <FullScreenSection
