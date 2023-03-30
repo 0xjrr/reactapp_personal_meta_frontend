@@ -53,13 +53,15 @@ const LandingSection = () => {
           Contact me
         </Heading>
         <Box p={6} rounded="md" w="100%">
-          <form>
+          <form onSubmit={formik.handleSubmit}>
             <VStack spacing={4}>
               <FormControl isInvalid={false}>
                 <FormLabel htmlFor="firstName">Name</FormLabel>
                 <Input
                   id="firstName"
                   name="firstName"
+                  onChange={formik.handleChange}
+                  placeholder={formik.values.firstName}
                 />
                 <FormErrorMessage></FormErrorMessage>
               </FormControl>
@@ -69,6 +71,8 @@ const LandingSection = () => {
                   id="email"
                   name="email"
                   type="email"
+                  onChange={formik.handleChange}
+                  placeholder={formik.values.email}
                 />
                 <FormErrorMessage></FormErrorMessage>
               </FormControl>
@@ -88,6 +92,8 @@ const LandingSection = () => {
                   id="comment"
                   name="comment"
                   height={250}
+                  onChange={formik.handleChange}
+                  placeholder={formik.values.comment}
                 />
                 <FormErrorMessage></FormErrorMessage>
               </FormControl>
