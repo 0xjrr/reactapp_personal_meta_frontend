@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
+import { faEnvelope, faMailBulk } from "@fortawesome/free-solid-svg-icons";
 import {
   faGithub,
   faLinkedin,
@@ -11,22 +11,27 @@ import { Box, HStack } from "@chakra-ui/react";
 
 const socials = [
   {
+    name: "mail", 
     icon: faEnvelope,
     url: "mailto: hello@example.com",
   },
   {
+    name: "git", 
     icon: faGithub,
     url: "https://github.com",
   },
   {
+    name: "in", 
     icon: faLinkedin,
     url: "https://www.linkedin.com",
   },
   {
+    name: "medium", 
     icon: faMedium,
     url: "https://medium.com",
   },
   {
+    name: "stack", 
     icon: faStackOverflow,
     url: "https://stackoverflow.com",
   },
@@ -78,12 +83,12 @@ const Header = () => {
         >
           <nav>
             <HStack spacing={8}>
-              {socials.map(social => <a href={social.url}> <FontAwesomeIcon icon={social.icon} size="2x" /></a>)}
+              {socials.map(social => <a key={social.name} href={social.url}> <FontAwesomeIcon icon={social.icon} size="2x" /></a>)}
             </HStack>
           </nav>
           <nav>
             <HStack spacing={8}>
-              {links.map(link => <a href={link.url} onClick={handleClick(link.anchor)}> {link.name}</a>)}
+              {links.map(link => <a key={link.anchor} href={link.url} onClick={handleClick(link.anchor)}> {link.name}</a>)}
             </HStack>
           </nav>
         </HStack>
