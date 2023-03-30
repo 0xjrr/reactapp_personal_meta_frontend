@@ -31,8 +31,7 @@ const LandingSection = () => {
 
     },
     onSubmit: (values) => {
-      submit('', values)
-      return onOpen(response.type, response.message)
+      submit('', values);
     },
 
     validationSchema: Yup.object({
