@@ -104,7 +104,7 @@ const LandingSection = () => {
                 <FormErrorMessage></FormErrorMessage>
               </FormControl>
               <Button type="submit" colorScheme="purple" width="full">
-                Submit
+                {submissionText}
               </Button>
             </VStack>
           </form>
