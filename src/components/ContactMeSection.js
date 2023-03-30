@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React, {useEffect, useState} from "react";
 import { useFormik } from "formik";
 import {
   Box,
@@ -20,6 +20,7 @@ import {useAlertContext} from "../context/alertContext";
 const LandingSection = () => {
   const {isLoading, response, submit} = useSubmit();
   const { onOpen } = useAlertContext();
+  const [submissionText, setSubmissionText] = useState("Submit")
 
   const formik = useFormik({
     initialValues: {
@@ -40,6 +41,11 @@ const LandingSection = () => {
       comment: Yup.string().min(25).required('Must be at least 25 characters'),
     }),
   });
+
+  useEffect(()=>{
+    setSubmissionText(isLoading?"Loading":"Submit")
+  },
+  [isLoading])
 
   return (
     <FullScreenSection
