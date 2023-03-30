@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, {useEffect} from "react";
 import { useFormik } from "formik";
 import {
   Box,
@@ -20,7 +20,6 @@ import {useAlertContext} from "../context/alertContext";
 const LandingSection = () => {
   const {isLoading, response, submit} = useSubmit();
   const { onOpen } = useAlertContext();
-  const [submissionText, setSubmissionText] = useState("Submit")
 
   const formik = useFormik({
     initialValues: {
