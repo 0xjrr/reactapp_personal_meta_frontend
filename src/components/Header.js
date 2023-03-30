@@ -32,6 +32,19 @@ const socials = [
   },
 ];
 
+const links = [
+  {
+    name: "Projects",
+    url: "/#projects",
+    anchor: "projects",
+  },
+  {
+    name: "Contact Me",
+    url: "/#contact-me",
+    anchor: "contactme",
+  },
+];
+
 const Header = () => {
   const handleClick = (anchor) => () => {
     const id = `${anchor}-section`;
@@ -70,7 +83,7 @@ const Header = () => {
           </nav>
           <nav>
             <HStack spacing={8}>
-              {/* Add links to Projects and Contact me section */}
+              {links.map(link => <a href={link.url} onClick={handleClick(link.anchor)}> {link.name}</a>)}
             </HStack>
           </nav>
         </HStack>
